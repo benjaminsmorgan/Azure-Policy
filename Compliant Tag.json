@@ -1,0 +1,11 @@
+{
+    "if": {
+        "not": {
+            "field": "[concat('tags'[', parameters('Compliant'), ']')]",
+            "equals": "[parameters('Yes')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}

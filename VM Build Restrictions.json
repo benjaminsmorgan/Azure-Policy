@@ -1,0 +1,8 @@
+{
+    "properties":{
+        "displayName": "VM Build Restrictions",
+        "description": "This Policy restricts the SKU's of deployed VMs",
+        "mode": "All",
+        ""
+    }
+}
