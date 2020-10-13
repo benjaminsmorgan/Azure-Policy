@@ -1,43 +1,47 @@
 {
     "properties": {
-        "displayName": "Compliant Tag Enforcement",
-        "mode": "All",
-        "description": "Tag Enforcement at RG Scope.",
-        "metadata": {
-            "category": "Tags"
-        },
-        "parameters": {
-            "tagName": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "Tag Name",
-                    "description": "Name of the tag"
+       "displayName": "Require a Compliant Tag",
+       "policyType": "BuiltIn",
+       "mode": "All",
+       "description": "Complant needs to be marked as Yes.",
+       "metadata": {
+          "version": "1.0.0",
+          "category": "Tags"
+       },
+       "parameters": {
+          "tagName": {
+             "type": "String",
+             "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag"
+             }
+          },
+          "tagValue": {
+             "type": "String",
+             "metadata": {
+                "displayName": "Tag Value",
+                "description": "Value of the tag"
+             }
+          }
+       },
+       "policyRule": {
+          "if": {
+             "allOf": [
+                {
+                   "field": "type",
+                   "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+                },
+                {
+                   "field": "[concat('tags[', parameters('Complaint'), ']')]",
+                   "notEquals": "[parameters('Yes')]"
                 }
-            },
-            "tagValue": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "Tag Value",
-                    "description": "Value of the tag"
-                }
-            }
-        },
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
-                    },
-                    {
-                        "field": "[concat('tags[', parameters('Compliant'), ']')]",
-                        "notEquals": "[parameters('Yes')]"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-                    }
-        }
-    }
-}
-    
+             ]
+          },
+          "then": {
+             "effect": "deny"
+          }
+       }
+    },
+    "id": "/providers/Microsoft.Authorization/policyDefinitions/8ce3da23-7156-49e4-b145-24f95f9dcb46",
+    "name": "8ce3da23-7156-49e4-b145-24f95f9dcb46"
+ }
