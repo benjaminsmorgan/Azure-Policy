@@ -1,11 +1,43 @@
 {
-    "if": {
-        "not": {
-            "field": "[concat('tags'[', parameters('Compliant'), ']')]",
-            "equals": "[parameters('Yes')]"
+    "properties": {
+        "displayName": "Compliant Tag Enforcement",
+        "mode": "All",
+        "description": "Tag Enforcement at RG Scope.",
+        "metadata": {
+            "category": "Tags"
+        },
+        "parameters": {
+            "tagName": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name",
+                    "description": "Name of the tag"
+                }
+            },
+            "tagValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Value",
+                    "description": "Value of the tag"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [{
+                        "field": "type",
+                        "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+                    },
+                    {
+                        "field": "[concat('tags[', parameters('Compliant'), ']')]",
+                        "notEquals": "[parameters('Yes')]"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+                    }
         }
-    },
-    "then": {
-        "effect": "deny"
     }
 }
+    
