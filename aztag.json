@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+        },
+        {
+            "field": "[concat('tags[', parameters('Complaint'), ']')]",
+            "notEquals": "[parameters('Yes')]"
+        }
+    ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
