@@ -6,8 +6,8 @@
             "equals": "Microsoft.Resources/subscriptions/resourceGroups"
         },
         {
-            "field": "[concat('tags[', parameters('Complaint'), ']')]",
-            "notEquals": "[parameters('Yes')]"
+            "field": "tags['Complaint']",
+            "notEquals": "Yes"
         }
     ]
     },
