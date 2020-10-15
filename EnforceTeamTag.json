@@ -6,10 +6,10 @@
             "equals": "Microsoft.Resources/subscriptions/resourceGroups"
         },
         {
-            "field": "[concat('tags[', parameters('Team'), ']')]",
+            "field": "tags['Team']",
             "exists": "false"
-         }
-      ],
+        }
+        ],
         "then": {
             "effect": "modify",
             "details": {
@@ -19,11 +19,10 @@
             "operations": [
                 {
                  "operation": "add",
-                 "field": "[concat('tags[', parameters('Team'), ']')]",
-                 "value": "[parameters('tagValue')]"
+                 "field": "tags['Team']",
                 }
             ]
             }
         }
-     }
+    }
 }
