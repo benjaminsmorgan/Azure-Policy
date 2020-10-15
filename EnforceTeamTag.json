@@ -19,7 +19,7 @@
             "operations": [
                 {
                  "operation": "add",
-                 "field": "tags['Team']",
+                 "field": "tags['Team']"
                 }
             ]
             }
