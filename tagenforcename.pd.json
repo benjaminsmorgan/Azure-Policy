@@ -1,0 +1,31 @@
+{
+  "policyType": "Custom",
+  "mode": "All",
+  "displayName": "tagenforcename",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+        },
+        {
+          "field": "tags['Complaint']",
+          "notEquals": "Yes"
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "metadata": {
+    "createdBy": "659c423b-3f9d-4db0-8224-12421609036e",
+    "createdOn": "2020-10-14T10:50:58.4828913Z",
+    "updatedBy": null,
+    "updatedOn": null
+  },
+  "id": "/subscriptions/89c00128-c3f6-4d2b-8409-7d73983eaa4d/providers/Microsoft.Authorization/policyDefinitions/tagenforce",
+  "name": "tagenforce",
+  "type": "Microsoft.Authorization/policyDefinitions"
+}

@@ -1,0 +1,30 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Require a tag on resource groups",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+  "scope": "/subscriptions/89c00128-c3f6-4d2b-8409-7d73983eaa4d",
+  "notScopes": [],
+  "parameters": {
+   "tagName": {
+    "value": "Type"
+   }
+  },
+  "description": "Requires the \"Type\" on all newly created Resource Groups",
+  "metadata": {
+   "assignedBy": "Benjamin Morgan",
+   "parameterScopes": {},
+   "createdBy": "659c423b-3f9d-4db0-8224-12421609036e",
+   "createdOn": "2020-10-19T10:15:54.6537413Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/subscriptions/89c00128-c3f6-4d2b-8409-7d73983eaa4d/providers/Microsoft.Authorization/policyAssignments/305972a7c3f241d19603b8dd",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "305972a7c3f241d19603b8dd"
+}
